@@ -1,0 +1,32 @@
+{
+  "name": "@project-zero/components",
+  "version": "0.0.0",
+  "description": "Component Library",
+  "author": "Richie McColl <richie.mccoll@hotmail.co.uk>",
+  "homepage": "https://github.com/richiemccoll/project-zero#readme",
+  "license": "ISC",
+  "source": "src/index.js",          
+  "main": "dist/index.js",
+  "module": "dist/index.module.js",
+  "unpkg": "dist/index.umd.js",
+  "scripts": {
+    "build": "rm -rf dist && microbundle",
+    "dev": "microbundle watch"
+  },
+  "directories": {
+    "lib": "src"
+  },
+  "files": [
+    "dist/index.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/richiemccoll/project-zero.git"
+  },
+  "bugs": {
+    "url": "https://github.com/richiemccoll/project-zero/issues"
+  },
+  "devDependencies": {
+    "microbundle": "^0.13.0"
+  }
+}
