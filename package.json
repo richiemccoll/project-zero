@@ -1,9 +1,6 @@
 {
   "name": "project-zero",
   "private": true,
-  "scripts": {
-    "test": "ECHO npm test"
-  },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
