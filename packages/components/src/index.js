@@ -1,5 +1,3 @@
-'use strict';
+import Box from "./box/";
 
-export default function components() {
-    // TODO
-}
+export { Box };

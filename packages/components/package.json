@@ -5,13 +5,15 @@
   "author": "Richie McColl <richie.mccoll@hotmail.co.uk>",
   "homepage": "https://github.com/richiemccoll/project-zero#readme",
   "license": "ISC",
-  "source": "src/index.js",          
+  "source": "src/index.js",
   "main": "dist/index.js",
   "module": "dist/index.module.js",
   "unpkg": "dist/index.umd.js",
   "scripts": {
     "build": "rm -rf dist && microbundle",
-    "dev": "microbundle watch"
+    "dev": "microbundle watch",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "directories": {
     "lib": "src"
@@ -27,6 +29,13 @@
     "url": "https://github.com/richiemccoll/project-zero/issues"
   },
   "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@storybook/addon-actions": "^6.1.14",
+    "@storybook/addon-essentials": "^6.1.14",
+    "@storybook/addon-links": "^6.1.14",
+    "@storybook/react": "^6.1.14",
+    "babel-loader": "^8.2.2",
     "microbundle": "^0.13.0"
-  }
+  },
+  "dependencies": {}
 }
