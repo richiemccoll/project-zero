@@ -1,23 +1,22 @@
-import React from "react";
-import PropTypes from "prop-types";
+import styled from "styled-components";
+import { space, color, layout, flexbox } from "styled-system";
 
 /**
-* Everything in web design is a box, or the absence of a box.
+ * Everything in web design is a box, or the absence of a box.
  */
-export default function Box({
-  backgroundColor,
-  ...props
-}) {
-  return <div>I am a box with {backgroundColor}</div>;
-}
+const Box = styled.div(
+  {
+    boxSizing: "border-box",
+    minWidth: 0,
+  },
+  space,
+  color,
+  layout,
+  flexbox
+);
 
-Box.propTypes = {
-  /**
-   * What background color to use
-   */
-  backgroundColor: PropTypes.string,
-};
+export default Box;
 
-Box.defaultProps = {
-  backgroundColor: '#FFF',
-};
+Box.propTypes = {};
+
+Box.defaultProps = {};
