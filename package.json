@@ -1,6 +1,7 @@
 {
   "name": "project-zero",
   "private": true,
+  "license": "MIT",
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",

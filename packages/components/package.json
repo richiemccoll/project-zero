@@ -4,7 +4,7 @@
   "description": "Component Library",
   "author": "Richie McColl <richie.mccoll@hotmail.co.uk>",
   "homepage": "https://github.com/richiemccoll/project-zero#readme",
-  "license": "ISC",
+  "license": "MIT",
   "source": "src/index.ts",
   "main": "dist/index.js",
   "module": "dist/index.module.js",
