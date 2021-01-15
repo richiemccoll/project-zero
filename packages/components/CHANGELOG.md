@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.1](https://github.com/richiemccoll/project-zero/compare/@project-zero/components@1.0.0...@project-zero/components@1.0.1) (2021-01-15)
+
+
+### Bug Fixes
+
+* export text/heading components ([11f6b8c](https://github.com/richiemccoll/project-zero/commit/11f6b8c3ca49acb7521fc6caa538d07fd2d530b1))
+
+
+
+
+
 # 1.0.0 (2021-01-15)
 
 
