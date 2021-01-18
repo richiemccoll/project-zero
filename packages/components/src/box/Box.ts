@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { space, color, layout, flexbox } from "styled-system";
+import { space, color, layout, flexbox, border } from "styled-system";
 
 /**
  * Everything in web design is a box, or the absence of a box.
@@ -12,7 +12,8 @@ const Box = styled.div(
   space,
   color,
   layout,
-  flexbox
+  flexbox,
+  border
 );
 
 export default Box;
