@@ -1,4 +1,4 @@
 #!/bin/bash
 
-lerna exec -- npm run check-types
-lint-staged
+npx lerna exec -- npm run check-types
+npx lint-staged
