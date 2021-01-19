@@ -1,20 +1,24 @@
-import React, { Children, ButtonHTMLAttributes, SyntheticEvent } from "react";
+import React, { Children, SyntheticEvent } from "react";
 
 import Text from "../text/";
 import Box from "../box/";
 
 const VALID_ELEMENT_TYPES = ["button", "a"];
 
-type LinkProps = {
+type ButtonProps = {
+  children: React.ReactNode;
+  as?: string;
+  variant?: string;
+  onClick?: (arg: SyntheticEvent) => void;
+  onPress?: (arg: SyntheticEvent) => void;
+  disabled?: boolean;
   href?: string;
   role?: string;
   target?: string;
   rel?: string;
-};
+}
 
-type ElementProps = LinkProps | ButtonHTMLAttributes<HTMLButtonElement>;
-
-function getElementProps(type: string, props): ElementProps {
+function getElementProps(type: string, props: ButtonProps): ButtonProps {
   if (type !== "button") {
     return {
       role: "button",
@@ -33,10 +37,10 @@ export default function Button({
   children,
   as = "button",
   variant = "primary",
-  onClick,
-  onPress,
+  onClick = () => {},
+  onPress = () => {},
   ...props
-}) {
+}: ButtonProps) {
   const elementType = VALID_ELEMENT_TYPES.includes(as) ? as : "button";
   const childElements = Children.map(children, (child) => {
     if (typeof child === "string") {
@@ -44,7 +48,7 @@ export default function Button({
     }
     return child;
   });
-  const elementProps = getElementProps(elementType, props);
+  const elementProps = getElementProps(elementType, props as ButtonProps);
   function handleOnClick(event: SyntheticEvent) {
     if (props.disabled) {
         return;
