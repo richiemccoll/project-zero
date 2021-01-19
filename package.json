@@ -9,6 +9,12 @@
     "lerna": "^3.22.1"
   },
   "scripts": {
-    "publish": "lerna publish from-package --yes"
+    "publish": "lerna publish from-package --yes",
+    "lint": "lerna exec -- npm run lint"
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": [
+      "npm run lint"
+    ]
   }
 }

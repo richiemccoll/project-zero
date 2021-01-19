@@ -1,20 +1,16 @@
-import React from "react";
+import React from 'react';
 
-import Heading from "../Heading";
+import Heading from '../Heading';
 
 export default {
-  title: "Heading",
-  component: Heading,
-  argTypes: {},
+    title: 'Heading',
+    component: Heading,
+    argTypes: {},
 };
 
-const Template = (args) => (
-  <Heading>
-    Heading Component
-  </Heading>
-);
+const Template = (args) => <Heading>Heading Component</Heading>;
 
 export const Standard = Template.bind({});
 Standard.args = {
-  label: "Heading",
+    label: 'Heading',
 };

@@ -2,6 +2,6 @@
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-push": "lerna exec -- npm run test",
-      "pre-commit": "lerna exec -- npm run check-types"
+      "pre-commit": "./scripts/pre-commit.sh"
     }
   }

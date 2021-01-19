@@ -1,20 +1,16 @@
-import React from "react";
+import React from 'react';
 
-import Text from "../Text";
+import Text from '../Text';
 
 export default {
-  title: "Text",
-  component: Text,
-  argTypes: {},
+    title: 'Text',
+    component: Text,
+    argTypes: {},
 };
 
-const Template = (args) => (
-  <Text>
-    Text Component
-  </Text>
-);
+const Template = (args) => <Text>Text Component</Text>;
 
 export const Standard = Template.bind({});
 Standard.args = {
-  label: "Text",
+    label: 'Text',
 };

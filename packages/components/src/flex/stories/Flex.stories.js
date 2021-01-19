@@ -1,21 +1,21 @@
-import React from "react";
+import React from 'react';
 
-import Flex from "../Flex";
+import Flex from '../Flex';
 
 export default {
-  title: "Flex",
-  component: Flex,
-  argTypes: {},
+    title: 'Flex',
+    component: Flex,
+    argTypes: {},
 };
 
 const Template = (args) => (
-  <Flex justifyContent="space-around" bg="#eee">
-    <p>Child one</p>
-    <p>Child two</p>
-  </Flex>
+    <Flex justifyContent="space-around" bg="#eee">
+        <p>Child one</p>
+        <p>Child two</p>
+    </Flex>
 );
 
 export const Standard = Template.bind({});
 Standard.args = {
-  label: "Flex",
+    label: 'Flex',
 };
