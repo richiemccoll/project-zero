@@ -1,6 +1,6 @@
 module.exports = {
-  transform: {
-    "\\.[jt]sx?$": "babel-jest"
-  },
-  testPathIgnorePatterns: ['/node_modules/'],
+    transform: {
+        '\\.[jt]sx?$': 'babel-jest',
+    },
+    testPathIgnorePatterns: ['/node_modules/'],
 };
