@@ -17,7 +17,7 @@
     "check-types": "tsc",
     "test": "NODE_ENV=test jest --coverage",
     "test:watch": "NODE_ENV=test jest --watch",
-    "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix"
+    "lint": "eslint './src/**/*.{js,ts,tsx}' --quiet --fix"
   },
   "directories": {
     "lib": "src"

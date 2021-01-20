@@ -1,11 +1,19 @@
 import styled from 'styled-components';
 import { typography } from 'styled-system';
 
+function getSize({ theme, variant }) {
+    return theme.fontSizes.heading[variant];
+}
+
 const Heading = styled.h2`
     ${typography};
     font-weight: bold;
+    font-size: ${getSize}em;
     margin: 0;
-    font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 `;
+
+Heading.defaultProps = {
+    variant: 'medium',
+};
 
 export default Heading;
