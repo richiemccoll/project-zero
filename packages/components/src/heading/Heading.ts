@@ -8,7 +8,7 @@ function getSize({ theme, variant }) {
 const Heading = styled.h2`
     ${typography};
     font-weight: bold;
-    font-size: ${getSize}em;
+    font-size: ${getSize}rem;
     margin: 0;
 `;
 
