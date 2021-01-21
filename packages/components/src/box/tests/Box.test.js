@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { renderWithTheme as render } from '@Utils/test-utils';
 import Box from '../';
 
 const NODE_TYPES = {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { renderWithTheme as render } from '@Utils/test-utils';
 import Text from '../Text';
 
 describe('Text', () => {
