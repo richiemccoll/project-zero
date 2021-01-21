@@ -12,4 +12,9 @@ defaultTheme.fontSizes.heading = {
     tiny: defaultTheme.fontSizes[2] / BASE_FONT_SIZE_PX,
 };
 
+defaultTheme.fontSizes.text = {
+    medium: defaultTheme.fontSizes[1] / BASE_FONT_SIZE_PX,
+    small: defaultTheme.fontSizes[0] / BASE_FONT_SIZE_PX,
+};
+
 export default defaultTheme;

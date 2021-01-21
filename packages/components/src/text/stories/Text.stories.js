@@ -8,9 +8,16 @@ export default {
     argTypes: {},
 };
 
-const Template = (args) => <Text>Text Component</Text>;
+const RegularText = () => <Text>Text Component</Text>;
 
-export const Standard = Template.bind({});
-Standard.args = {
-    label: 'Text',
+const SmallText = () => <Text variant="small">Text Component</Text>;
+
+export const Regular = RegularText.bind({});
+Regular.args = {
+    label: 'BodyText Regular',
+};
+
+export const Small = SmallText.bind({});
+Small.args = {
+    label: 'BodyText Small',
 };
