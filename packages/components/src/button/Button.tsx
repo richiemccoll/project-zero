@@ -1,7 +1,10 @@
 import React, { Children, ReactElement, SyntheticEvent } from 'react';
+import styled from 'styled-components';
 
 import Text from '../text/';
 import Box from '../box/';
+
+import DEFAULT_THEME from '../../default-theme';
 
 const VALID_ELEMENT_TYPES = ['button', 'a'];
 
@@ -16,6 +19,7 @@ type ButtonProps = {
     role?: string;
     target?: string;
     rel?: string;
+    rounded?: boolean;
 };
 
 function getElementProps(type: string, props: ButtonProps): ButtonProps {
@@ -33,11 +37,47 @@ function getElementProps(type: string, props: ButtonProps): ButtonProps {
     };
 }
 
+function getColor({ theme, variant }) {
+    return theme.buttons[variant].color.default;
+}
+
+function getDisabledColor({ theme, variant }) {
+    return theme.buttons[variant].color.disabled;
+}
+
+function getBackgroundColor({ theme, variant }) {
+    return theme.buttons[variant].backgroundColor;
+}
+
+function getActiveBackgroundColor({ theme, variant }) {
+    return theme.buttons[variant].active;
+}
+
+function getDisabledBackgroundColor({ theme, variant }) {
+    return theme.buttons[variant].disabled;
+}
+
+const StyledButton = styled(Box)`
+    color: ${getColor};
+    background-color: ${getBackgroundColor};
+    transition: background-color 200ms;
+
+    &:hover,
+    &:active {
+        background-color: ${getActiveBackgroundColor};
+    }
+
+    &:disabled {
+        background-color: ${getDisabledBackgroundColor};
+        color: ${getDisabledColor};
+    }
+`;
+
 export default function Button({
     children,
     as = 'button',
-    variant = 'primary',
     onClick = null,
+    rounded,
     ...props
 }: ButtonProps): ReactElement {
     const elementType = VALID_ELEMENT_TYPES.includes(as) ? as : 'button';
@@ -57,17 +97,22 @@ export default function Button({
         }
     }
     return (
-        <Box
+        <StyledButton
             as={elementType}
-            bg={variant}
-            px={3}
-            py={2}
+            px={4}
+            py={3}
             border={0}
-            borderRadius={4}
+            borderRadius={rounded ? 50 : 4}
             onClick={handleOnClick}
             {...elementProps}
         >
             {childElements}
-        </Box>
+        </StyledButton>
     );
 }
+
+Button.defaultProps = {
+    as: 'button',
+    theme: DEFAULT_THEME,
+    variant: 'primary',
+};
