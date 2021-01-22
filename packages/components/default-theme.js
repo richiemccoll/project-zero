@@ -1,4 +1,5 @@
 const BASE_FONT_SIZE_PX = 16;
+const BASE_LINE_HEIGHT = 1.5;
 
 const defaultTheme = {
     fontSizes: [12, 16, 20, 24, 32, 40, 64],
@@ -67,6 +68,12 @@ defaultTheme.buttons = {
         active: defaultTheme.colors.grey.light.active,
         disabled: defaultTheme.colors.grey.light.disabled,
     },
+};
+
+defaultTheme.verticalSpacing = {
+    regular: BASE_LINE_HEIGHT,
+    small: BASE_LINE_HEIGHT / 2,
+    large: BASE_LINE_HEIGHT * 2,
 };
 
 export default defaultTheme;

@@ -1,7 +1,8 @@
-import Box from './box/index';
-import Flex from './flex/index';
-import Text from './text/index';
-import Heading from './heading/index';
-import Button from './button/index';
+import Box from './box/';
+import Flex from './flex/';
+import Text from './text/';
+import Heading from './heading/';
+import Button from './button/';
+import Stack from './stack/';
 
-export { Box, Flex, Heading, Text, Button };
+export { Box, Flex, Heading, Text, Button, Stack };
