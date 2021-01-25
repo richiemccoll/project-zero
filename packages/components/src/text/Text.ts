@@ -4,7 +4,7 @@ import { typography } from 'styled-system';
 import DEFAULT_THEME from '../../default-theme';
 
 function getFontSize({ theme, variant }) {
-    return theme.fontSizes.text[variant];
+    return theme.textFontSizes[variant];
 }
 
 const Text = styled.span`

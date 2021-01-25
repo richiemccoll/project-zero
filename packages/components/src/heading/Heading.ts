@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { typography } from 'styled-system';
 
 function getSize({ theme, variant }) {
-    return theme.fontSizes.heading[variant];
+    return theme.headingFontSizes[variant];
 }
 
 const Heading = styled.h2`
