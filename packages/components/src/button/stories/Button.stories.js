@@ -1,6 +1,8 @@
 import React from 'react';
+import Box from '../../box';
 
 import Flex from '../../flex/';
+import Text from '../../text';
 import Button from '../Button';
 
 export default {
@@ -8,6 +10,22 @@ export default {
     component: Button,
     argTypes: {},
 };
+
+// eslint-disable-next-line
+const Chevron = ({ direction = 'right' }) => (
+    <svg
+        viewBox="0 0 32 32"
+        width={15}
+        height={15}
+        fill="none"
+        stroke={'currentcolor'}
+        strokeLinecap={'round'}
+        strokeLinejoin={'round'}
+        strokeWidth={4}
+    >
+        {direction === 'right' ? <path d="M12 30 L24 16 12 2" /> : <path d="M20 30 L8 16 20 2" />}
+    </svg>
+);
 
 const PrimaryTemplate = () => (
     <Flex justifyContent="space-around">
@@ -57,22 +75,70 @@ const RoundedTemplate = () => (
     </Flex>
 );
 
+const IconRightTemplate = () => (
+    <Flex justifyContent="space-around">
+        <Button variant="primary" onClick={console.log}>
+            <Flex as="span" alignItems="center">
+                <Text>Primary Icon Right</Text>
+                <Box as="span" p={'0.25rem'}>
+                    <Chevron />
+                </Box>
+            </Flex>
+        </Button>
+
+        <Button variant="dark" onClick={console.log}>
+            <Flex as="span" alignItems="center">
+                <Text>Primary Icon Right</Text>
+                <Box as="span" p={'0.25rem'}>
+                    <Chevron />
+                </Box>
+            </Flex>
+        </Button>
+    </Flex>
+);
+
+const IconLeftTemplate = () => (
+    <Flex justifyContent="space-around">
+        <Button variant="primary" onClick={console.log}>
+            <Flex as="span" alignItems="center">
+                <Box as="span" p={'0.25rem'}>
+                    <Chevron direction="left" />
+                </Box>
+                <Text>Primary Icon Left</Text>
+            </Flex>
+        </Button>
+
+        <Button variant="dark" onClick={console.log}>
+            <Flex as="span" alignItems="center">
+                <Box as="span" p={'0.25rem'}>
+                    <Chevron direction="left" />
+                </Box>
+                <Text>Primary Icon Left</Text>
+            </Flex>
+        </Button>
+    </Flex>
+);
+
+const CircularTemplate = () => (
+    <Flex justifyContent="space-around">
+        <Button variant="primary" onClick={console.log} circular>
+            <Chevron direction="right" />
+        </Button>
+
+        <Button variant="dark" onClick={console.log} circular>
+            <Chevron direction="right" />
+        </Button>
+
+        <Button variant="light" onClick={console.log} circular>
+            <Chevron direction="right" />
+        </Button>
+    </Flex>
+);
+
 export const Primary = PrimaryTemplate.bind({});
-Primary.args = {
-    label: 'Button',
-};
-
 export const Dark = DarkTemplate.bind({});
-DarkTemplate.args = {
-    label: 'Button',
-};
-
 export const Light = LightTemplate.bind({});
-LightTemplate.args = {
-    label: 'Button',
-};
-
 export const Rounded = RoundedTemplate.bind({});
-RoundedTemplate.args = {
-    label: 'Button',
-};
+export const IconRight = IconRightTemplate.bind({});
+export const IconLeft = IconLeftTemplate.bind({});
+export const Circular = CircularTemplate.bind({});

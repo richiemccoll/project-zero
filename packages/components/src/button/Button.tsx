@@ -1,5 +1,6 @@
 import React, { Children, ReactElement, SyntheticEvent } from 'react';
 import styled from 'styled-components';
+import { space, border } from 'styled-system';
 
 import Text from '../text/';
 import Box from '../box/';
@@ -7,6 +8,15 @@ import Box from '../box/';
 import DEFAULT_THEME from '../../default-theme';
 
 const VALID_ELEMENT_TYPES = ['button', 'a'];
+const BORDER_RADIUS_SIZES = {
+    REGULAR: 6,
+    ROUNDED: 18,
+    CIRCULAR: '50%',
+};
+const SPACING_SIZES = {
+    REGULAR: [4, 3],
+    CIRCULAR: [3, 3],
+};
 
 type ButtonProps = {
     children: React.ReactNode;
@@ -20,6 +30,7 @@ type ButtonProps = {
     target?: string;
     rel?: string;
     rounded?: boolean;
+    circular?: boolean;
 };
 
 function getElementProps(type: string, props: ButtonProps): ButtonProps {
@@ -38,7 +49,7 @@ function getElementProps(type: string, props: ButtonProps): ButtonProps {
 }
 
 function getColor({ theme, variant }) {
-    return theme.buttons[variant].color.default;
+    return theme.buttons[variant].color;
 }
 
 function getDisabledColor({ theme, variant }) {
@@ -57,6 +68,16 @@ function getDisabledBackgroundColor({ theme, variant }) {
     return theme.buttons[variant].disabled;
 }
 
+function getBorderRadius({ circular, rounded }) {
+    if (circular) {
+        return BORDER_RADIUS_SIZES.CIRCULAR;
+    }
+    if (rounded) {
+        return BORDER_RADIUS_SIZES.ROUNDED;
+    }
+    return BORDER_RADIUS_SIZES.REGULAR;
+}
+
 const StyledButton = styled(Box)`
     color: ${getColor};
     background-color: ${getBackgroundColor};
@@ -71,12 +92,16 @@ const StyledButton = styled(Box)`
         background-color: ${getDisabledBackgroundColor};
         color: ${getDisabledColor};
     }
+
+    ${space}
+    ${border}
 `;
 
 export default function Button({
     children,
     as = 'button',
     onClick = null,
+    circular,
     rounded,
     ...props
 }: ButtonProps): ReactElement {
@@ -88,6 +113,9 @@ export default function Button({
         return child;
     });
     const elementProps = getElementProps(elementType, props as ButtonProps);
+    const borderRadius = getBorderRadius({ circular, rounded });
+    const [px, py] = circular ? SPACING_SIZES.CIRCULAR : SPACING_SIZES.REGULAR;
+
     function handleOnClick(event: SyntheticEvent) {
         if (props.disabled) {
             return;
@@ -99,10 +127,10 @@ export default function Button({
     return (
         <StyledButton
             as={elementType}
-            px={4}
-            py={3}
+            px={px}
+            py={py}
             border={0}
-            borderRadius={rounded ? 50 : 4}
+            borderRadius={borderRadius}
             onClick={handleOnClick}
             {...elementProps}
         >
