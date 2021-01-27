@@ -19,6 +19,15 @@ type ButtonsMap = {
     disabled: string;
 };
 
+type LinksMap = {
+    primary: {
+        color: string;
+    };
+    secondary: {
+        color: string;
+    };
+};
+
 export type Theme = {
     fontSizes: Array<number>;
     headingFontSizes: {
@@ -55,6 +64,7 @@ export type Theme = {
         small: number;
         large: number;
     };
+    links: LinksMap;
 };
 
 const colors = {
@@ -131,6 +141,14 @@ const defaultTheme: Theme = {
             backgroundColor: colors.grey.light.default,
             active: colors.grey.light.active,
             disabled: colors.grey.light.disabled,
+        },
+    },
+    links: {
+        primary: {
+            color: colors.primary.default,
+        },
+        secondary: {
+            color: colors.dark.default,
         },
     },
     verticalSpacing: {

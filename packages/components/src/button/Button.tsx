@@ -6,20 +6,24 @@ import Text from '../text/';
 import Box from '../box/';
 import { useFocusRing } from '../utils/styles';
 
-import DEFAULT_THEME from '../../default-theme';
+import DEFAULT_THEME, { Theme } from '../../default-theme';
+
+import {
+    getColor,
+    getBackgroundColor,
+    getActiveBackgroundColor,
+    getDisabledColor,
+    getBorderRadius,
+    getDisabledBackgroundColor,
+} from './utils/theme-helpers';
 
 const VALID_ELEMENT_TYPES = ['button', 'a'];
-const BORDER_RADIUS_SIZES = {
-    REGULAR: 6,
-    ROUNDED: 18,
-    CIRCULAR: '50%',
-};
 const SPACING_SIZES = {
     REGULAR: [4, 3],
     CIRCULAR: [3, 3],
 };
 
-type ButtonProps = {
+export type ButtonProps = {
     children: React.ReactNode;
     as?: string;
     variant?: string;
@@ -32,6 +36,7 @@ type ButtonProps = {
     rel?: string;
     rounded?: boolean;
     circular?: boolean;
+    theme: Theme;
 };
 
 function getElementProps(type: string, props: ButtonProps): ButtonProps {
@@ -47,36 +52,6 @@ function getElementProps(type: string, props: ButtonProps): ButtonProps {
     return {
         ...props,
     };
-}
-
-function getColor({ theme, variant }) {
-    return theme.buttons[variant].color;
-}
-
-function getDisabledColor({ theme, variant }) {
-    return theme.buttons[variant].color.disabled;
-}
-
-function getBackgroundColor({ theme, variant }) {
-    return theme.buttons[variant].backgroundColor;
-}
-
-function getActiveBackgroundColor({ theme, variant }) {
-    return theme.buttons[variant].active;
-}
-
-function getDisabledBackgroundColor({ theme, variant }) {
-    return theme.buttons[variant].disabled;
-}
-
-function getBorderRadius({ circular, rounded }) {
-    if (circular) {
-        return BORDER_RADIUS_SIZES.CIRCULAR;
-    }
-    if (rounded) {
-        return BORDER_RADIUS_SIZES.ROUNDED;
-    }
-    return BORDER_RADIUS_SIZES.REGULAR;
 }
 
 const StyledButton = styled(Box)`
