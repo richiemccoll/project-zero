@@ -4,6 +4,7 @@ import { space, border } from 'styled-system';
 
 import Text from '../text/';
 import Box from '../box/';
+import { useFocusRing } from '../utils/styles';
 
 import DEFAULT_THEME from '../../default-theme';
 
@@ -81,12 +82,15 @@ function getBorderRadius({ circular, rounded }) {
 const StyledButton = styled(Box)`
     color: ${getColor};
     background-color: ${getBackgroundColor};
-    transition: background-color 200ms;
+    transition: background-color box-shadow 200ms;
 
+    &:focus,
     &:hover,
     &:active {
         background-color: ${getActiveBackgroundColor};
     }
+
+    ${useFocusRing}
 
     &:disabled {
         background-color: ${getDisabledBackgroundColor};
