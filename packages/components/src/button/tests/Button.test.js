@@ -1,10 +1,13 @@
 import React from 'react';
-import { fireEvent } from '@testing-library/react';
+import { fireEvent, cleanup } from '@testing-library/react';
 import { renderWithTheme as render } from '@Utils/test-utils';
 
 import ButtonComponent from '../';
 
 describe('Button', () => {
+    afterEach(async () => {
+        await cleanup();
+    });
     it('should wrap children in span by default', () => {
         const { getByText } = render(<ButtonComponent>Default</ButtonComponent>);
         const child = getByText('Default');
