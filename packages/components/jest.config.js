@@ -1,4 +1,5 @@
 module.exports = {
+    setupFilesAfterEnv: ['<rootDir>/setupFilesAfterEnv.js'],
     transform: {
         '\\.[jt]sx?$': 'babel-jest',
     },
