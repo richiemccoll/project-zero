@@ -5,5 +5,6 @@ import Heading from './heading/';
 import Button from './button/';
 import Stack from './stack/';
 import Link from './link/';
+import Tabs from './tabs/';
 
-export { Box, Flex, Heading, Text, Button, Stack, Link };
+export { Box, Flex, Heading, Text, Button, Stack, Link, Tabs };

@@ -1,13 +1,25 @@
-import React from 'react';
+import React, { RefObject } from 'react';
 import styled from 'styled-components';
 import { space, color, layout, flexbox, border } from 'styled-system';
 
 import DEFAULT_THEME, { Theme } from '../../default-theme';
 
+type BoxProps = {
+    invert?: boolean;
+    children: React.ReactNode;
+    theme?: Theme;
+    bg?: string;
+    color?: string;
+    as?: never;
+    id?: string;
+    hidden?: boolean;
+    role?: string;
+};
+
 /**
  * Everything in web design is a box, or the absence of a box.
  */
-const StyledBox = styled.div`
+const StyledBox = styled.div<BoxProps>`
     box-sizing: border-box;
     min-width: 0;
     ${space}
@@ -26,15 +38,7 @@ const StyledBox = styled.div`
     outline-offset: -0.12em;
 `;
 
-type BoxProps = {
-    invert?: boolean;
-    children: React.ReactNode;
-    theme: Theme;
-    bg?: string;
-    color?: string;
-};
-
-export default function Box({ invert, children, theme, ...props }: BoxProps): React.ReactElement {
+const Box = React.forwardRef(({ invert, children, theme, ...props }: BoxProps, ref: RefObject<HTMLDivElement>) => {
     const colors = {
         dark: {
             bg: theme.colors.dark.default,
@@ -47,13 +51,17 @@ export default function Box({ invert, children, theme, ...props }: BoxProps): Re
     };
     const { bg, color } = invert ? colors.dark : colors.default;
     return (
-        <StyledBox {...props} bg={bg} color={color}>
+        <StyledBox bg={bg} color={color} ref={ref} {...props}>
             {children}
         </StyledBox>
     );
-}
+});
+
+Box.displayName = 'Box';
 
 Box.defaultProps = {
     invert: false,
     theme: DEFAULT_THEME,
 };
+
+export default Box;
