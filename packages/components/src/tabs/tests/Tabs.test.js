@@ -1,6 +1,7 @@
 import React from 'react';
 import { fireEvent, cleanup } from '@testing-library/react';
 import { renderWithTheme as render } from '@Utils/test-utils';
+import { axe } from 'jest-axe';
 
 import Tabs from '../';
 import { keyCodes } from '../../constants';
@@ -175,5 +176,11 @@ describe('Tabs', () => {
             fireEvent.keyDown(second, RIGHT_KEYDOWN_EVENT);
             expect(third).toHaveFocus();
         });
+    });
+
+    it('should have no accessibility issues', async () => {
+        const { container } = render(<TabsUi />);
+        const results = await axe(container);
+        expect(results).toHaveNoViolations();
     });
 });

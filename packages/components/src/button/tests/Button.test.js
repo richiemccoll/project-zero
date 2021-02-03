@@ -1,6 +1,7 @@
 import React from 'react';
 import { fireEvent, cleanup } from '@testing-library/react';
 import { renderWithTheme as render } from '@Utils/test-utils';
+import { axe } from 'jest-axe';
 
 import ButtonComponent from '../';
 
@@ -84,5 +85,11 @@ describe('Button', () => {
         fireEvent.click(button);
         expect(button.disabled).toEqual(true);
         expect(spy).toHaveBeenCalledTimes(0);
+    });
+
+    it('should have no accessibility issues', async () => {
+        const { container } = render(<ButtonComponent>Default</ButtonComponent>);
+        const results = await axe(container);
+        expect(results).toHaveNoViolations();
     });
 });

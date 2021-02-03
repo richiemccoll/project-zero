@@ -1,6 +1,7 @@
 import React from 'react';
 import { fireEvent, cleanup } from '@testing-library/react';
 import { renderWithTheme as render } from '@Utils/test-utils';
+import { axe } from 'jest-axe';
 
 import Link from '../';
 
@@ -33,5 +34,18 @@ describe('Link', () => {
         const link = getByText('Default');
         fireEvent.click(link);
         expect(onClickSpy).toHaveBeenCalledTimes(1);
+    });
+
+    it('should have no accessibility issues', async () => {
+        const { container } = render(
+            <React.Fragment>
+                <Link href="href">Default</Link>
+                <Link as="a" href="href" target="target" rel="rel">
+                    Second
+                </Link>
+            </React.Fragment>,
+        );
+        const results = await axe(container);
+        expect(results).toHaveNoViolations();
     });
 });

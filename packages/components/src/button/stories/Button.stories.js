@@ -4,6 +4,7 @@ import Box from '../../box';
 import Flex from '../../flex/';
 import Text from '../../text';
 import Button from '../Button';
+import VisuallyHidden from '../../visually-hidden/';
 
 export default {
     title: 'Button',
@@ -13,18 +14,22 @@ export default {
 
 // eslint-disable-next-line
 const Chevron = ({ direction = 'right' }) => (
-    <svg
-        viewBox="0 0 32 32"
-        width={15}
-        height={15}
-        fill="none"
-        stroke={'currentcolor'}
-        strokeLinecap={'round'}
-        strokeLinejoin={'round'}
-        strokeWidth={4}
-    >
-        {direction === 'right' ? <path d="M12 30 L24 16 12 2" /> : <path d="M20 30 L8 16 20 2" />}
-    </svg>
+    <React.Fragment>
+        <svg
+            viewBox="0 0 32 32"
+            width={'1em'}
+            height={'1em'}
+            fill="none"
+            stroke={'currentcolor'}
+            strokeLinecap={'round'}
+            strokeLinejoin={'round'}
+            strokeWidth={4}
+            aria-hidden
+        >
+            {direction === 'right' ? <path d="M12 30 L24 16 12 2" /> : <path d="M20 30 L8 16 20 2" />}
+        </svg>
+        <VisuallyHidden>Arrow {direction}</VisuallyHidden>
+    </React.Fragment>
 );
 
 const PrimaryTemplate = () => (
