@@ -77,6 +77,7 @@ Link.displayName = 'Link';
 Link.defaultProps = {
     variant: 'primary',
     theme: DEFAULT_THEME,
+    onPress: () => {},
 };
 
 export default Link;
