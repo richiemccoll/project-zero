@@ -18,15 +18,15 @@ function Ui() {
                 <nav>
                     <ul>
                         <li>
-                            <Link>Home</Link>
+                            <Link href="home">Home</Link>
                         </li>
                         <li>
-                            <Link>About</Link>
+                            <Link href="about">About</Link>
                         </li>
                     </ul>
                 </nav>
             </header>
-            <main id="main-content">
+            <main id="main-content" data-testid="main-content">
                 <button data-testid="main-content-button">Click</button>
             </main>
         </Box>
@@ -46,11 +46,12 @@ describe('SkipLink', () => {
 
     it('should focus the main content via keyboard tab + enter', () => {
         const { getByText, getByTestId } = render(<Ui />);
+        const mainContent = getByTestId('main-content');
         userEvent.tab();
         const skipLink = getByText('Skip to Content');
         expect(skipLink).toHaveFocus();
         userEvent.type(skipLink, '{enter}');
-        userEvent.tab();
+        userEvent.tab({ focusTrap: mainContent });
         expect(getByTestId('main-content-button')).toHaveFocus();
     });
 });
