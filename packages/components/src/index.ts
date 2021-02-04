@@ -1,12 +1,13 @@
 import Box from './box/';
-import Flex from './flex/';
-import Text from './text/';
-import Heading from './heading/';
 import Button from './button/';
-import Stack from './stack/';
+import Flex from './flex/';
+import Heading from './heading/';
+import Image from './image';
 import Link from './link/';
-import Tabs from './tabs/';
-import VisuallyHidden from './visually-hidden/';
 import SkipLink from './skip-link/';
+import Stack from './stack/';
+import Tabs from './tabs/';
+import Text from './text/';
+import VisuallyHidden from './visually-hidden/';
 
-export { Box, Flex, Heading, Text, Button, Stack, Link, Tabs, VisuallyHidden, SkipLink };
+export { Box, Button, Flex, Heading, Image, Link, SkipLink, Stack, Tabs, Text, VisuallyHidden };
