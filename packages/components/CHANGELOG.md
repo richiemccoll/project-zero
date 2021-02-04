@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/richiemccoll/project-zero/compare/@project-zero/components@1.1.0...@project-zero/components@1.2.0) (2021-02-04)
+
+
+### Features
+
+* export theme provider ([2a8133a](https://github.com/richiemccoll/project-zero/commit/2a8133aa9c05167daa67c49f2b6bf70fd06d4f49))
+
+
+
+
+
 # [1.1.0](https://github.com/richiemccoll/project-zero/compare/@project-zero/components@1.0.1...@project-zero/components@1.1.0) (2021-02-04)
 
 
