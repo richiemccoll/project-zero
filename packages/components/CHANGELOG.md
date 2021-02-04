@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.2](https://github.com/richiemccoll/project-zero/compare/@project-zero/components@1.2.1...@project-zero/components@1.2.2) (2021-02-04)
+
+
+### Bug Fixes
+
+* build and update story ([c74130b](https://github.com/richiemccoll/project-zero/commit/c74130b0025c69b001e911e04dc67d69de3574bc))
+
+
+
+
+
 ## [1.2.1](https://github.com/richiemccoll/project-zero/compare/@project-zero/components@1.2.0...@project-zero/components@1.2.1) (2021-02-04)
 
 
