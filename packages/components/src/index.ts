@@ -10,5 +10,6 @@ import Stack from './stack/';
 import Tabs from './tabs/';
 import Text from './text/';
 import VisuallyHidden from './visually-hidden/';
+import ThemeProvider from './theme-provider';
 
-export { Box, Button, Card, Flex, Heading, Image, Link, SkipLink, Stack, Tabs, Text, VisuallyHidden };
+export { Box, Button, Card, Flex, Heading, Image, Link, SkipLink, Stack, Tabs, Text, ThemeProvider, VisuallyHidden };
