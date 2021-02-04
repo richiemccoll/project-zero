@@ -10,6 +10,6 @@ describe('Text', () => {
     it('renders children', () => {
         const { getByText } = render(<Text>Hello</Text>);
         const text = getByText('Hello');
-        expect(text.nodeName).toEqual('SPAN');
+        expect(text.nodeName).toEqual('P');
     });
 });

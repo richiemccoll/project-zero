@@ -1,5 +1,6 @@
 import Box from './box/';
 import Button from './button/';
+import Card from './card/';
 import Flex from './flex/';
 import Heading from './heading/';
 import Image from './image';
@@ -10,4 +11,4 @@ import Tabs from './tabs/';
 import Text from './text/';
 import VisuallyHidden from './visually-hidden/';
 
-export { Box, Button, Flex, Heading, Image, Link, SkipLink, Stack, Tabs, Text, VisuallyHidden };
+export { Box, Button, Card, Flex, Heading, Image, Link, SkipLink, Stack, Tabs, Text, VisuallyHidden };

@@ -1,6 +1,19 @@
 import React, { RefObject } from 'react';
 import styled from 'styled-components';
-import { space, color, layout, flexbox, border } from 'styled-system';
+import {
+    space,
+    color,
+    layout,
+    flexbox,
+    border,
+    shadow,
+    SpaceProps,
+    ColorProps,
+    FlexProps,
+    LayoutProps,
+    BorderProps,
+    ShadowProps,
+} from 'styled-system';
 
 import DEFAULT_THEME, { Theme } from '../../default-theme';
 
@@ -10,16 +23,17 @@ type BoxProps = {
     theme?: Theme;
     bg?: string;
     color?: string;
-    as?: never;
     id?: string;
     hidden?: boolean;
     role?: string;
 };
 
+type ComposedProps = SpaceProps & ColorProps & LayoutProps & FlexProps & BorderProps & ShadowProps & BoxProps;
+
 /**
  * Everything in web design is a box, or the absence of a box.
  */
-const StyledBox = styled.div<BoxProps>`
+const StyledBox = styled.div<ComposedProps>`
     box-sizing: border-box;
     min-width: 0;
     ${space}
@@ -27,6 +41,7 @@ const StyledBox = styled.div<BoxProps>`
     ${layout}
     ${flexbox}
     ${border}
+    ${shadow}
 
     * {
         color: inherit;
@@ -38,7 +53,7 @@ const StyledBox = styled.div<BoxProps>`
     outline-offset: -0.12em;
 `;
 
-const Box = React.forwardRef(({ invert, children, theme, ...props }: BoxProps, ref: RefObject<HTMLDivElement>) => {
+const Box = React.forwardRef(({ invert, children, theme, ...props }: ComposedProps, ref: RefObject<HTMLDivElement>) => {
     const colors = {
         dark: {
             bg: theme.colors.dark.default,

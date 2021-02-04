@@ -1,13 +1,17 @@
 import styled from 'styled-components';
 
-import Box from '../box/';
-import Theme from '../../default-theme';
+import Theme, { Theme as ThemeType } from '../../default-theme';
+
+type StackProps = {
+    variant?: string;
+    theme: ThemeType;
+};
 
 function getVerticalSpacing({ theme, variant }) {
     return theme.verticalSpacing[variant];
 }
 
-const Stack = styled(Box)`
+const Stack = styled.div<StackProps>`
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -18,7 +22,7 @@ const Stack = styled(Box)`
     }
 
     > * + * {
-        margin-top: ${getVerticalSpacing}rem;
+        margin-top: ${getVerticalSpacing}rem !important;
     }
 `;
 
