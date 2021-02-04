@@ -10,7 +10,7 @@
     "lint-staged": "^10.5.3"
   },
   "scripts": {
-    "publish": "lerna publish from-package --yes",
+    "publish": "lerna publish",
     "lint": "lerna exec -- npm run lint"
   },
   "lint-staged": {
