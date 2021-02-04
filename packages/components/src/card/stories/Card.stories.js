@@ -12,9 +12,9 @@ export default {
 };
 
 const longDescription = `
-    Long Description, Long Description, Long Description, Long Description,
-    Long Description, Long Description, Long Description, Long Description,
-    Long Description, Long Description, Long Description, Long Description
+This mission launches the eighteenth batch of operational Starlink satellites, which are version 1.0, from SLC-40.
+It is the nineteenth Starlink launch overall. The satellites will be delivered to low Earth orbit and will spend a few weeks maneuvering to their operational altitude.
+The booster is expected to land on an ASDS.
 `;
 
 const DefaultTemplate = () => (
