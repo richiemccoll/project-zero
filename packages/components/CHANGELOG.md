@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/richiemccoll/project-zero/compare/@project-zero/components@1.2.0...@project-zero/components@1.2.1) (2021-02-04)
+
+
+### Bug Fixes
+
+* useFadedTruncation bug ([00606c4](https://github.com/richiemccoll/project-zero/commit/00606c4cf73e515c917d97ff3e7193cd5a6f781d))
+
+
+
+
+
 # [1.2.0](https://github.com/richiemccoll/project-zero/compare/@project-zero/components@1.1.0...@project-zero/components@1.2.0) (2021-02-04)
 
 
