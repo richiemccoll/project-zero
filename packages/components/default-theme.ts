@@ -60,8 +60,9 @@ export type Theme = {
         light: ButtonsMap;
     };
     verticalSpacing: {
-        regular: number;
+        tiny: number;
         small: number;
+        regular: number;
         large: number;
     };
     links: LinksMap;
@@ -86,7 +87,7 @@ const colors = {
         },
         light: {
             default: '#EBF4FA',
-            active: '#D6E9F5',
+            active: '#E2EFF8',
             disabled: '#F3F8FC',
         },
         dark: {
@@ -152,8 +153,9 @@ const defaultTheme: Theme = {
         },
     },
     verticalSpacing: {
-        regular: BASE_LINE_HEIGHT,
+        tiny: BASE_LINE_HEIGHT / 3,
         small: BASE_LINE_HEIGHT / 2,
+        regular: BASE_LINE_HEIGHT,
         large: BASE_LINE_HEIGHT * 2,
     },
 };

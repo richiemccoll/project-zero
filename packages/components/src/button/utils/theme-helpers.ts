@@ -6,6 +6,13 @@ const BORDER_RADIUS_SIZES = {
     CIRCULAR: '50%',
 };
 
+const SPACING_SIZES = {
+    TINY: [1, 1],
+    SMALL: [2, 2],
+    REGULAR: [4, 3],
+    CIRCULAR: [3, 3],
+};
+
 function getColor({ theme, variant }: ButtonProps): string {
     return theme.buttons[variant].color;
 }
@@ -36,6 +43,24 @@ function getBorderRadius({ circular, rounded }: { circular: boolean; rounded: bo
     return BORDER_RADIUS_SIZES.REGULAR;
 }
 
+function getSize({ circular, size }: { circular: boolean; size: string }): Array<number> {
+    if (circular) {
+        return SPACING_SIZES.CIRCULAR;
+    } else {
+        switch (size) {
+            case 'tiny': {
+                return SPACING_SIZES.TINY;
+            }
+            case 'small': {
+                return SPACING_SIZES.SMALL;
+            }
+            default: {
+                return SPACING_SIZES.REGULAR;
+            }
+        }
+    }
+}
+
 export {
     getColor,
     getDisabledColor,
@@ -43,4 +68,5 @@ export {
     getActiveBackgroundColor,
     getDisabledBackgroundColor,
     getBorderRadius,
+    getSize,
 };

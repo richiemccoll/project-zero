@@ -14,13 +14,8 @@ import {
     getDisabledColor,
     getBorderRadius,
     getDisabledBackgroundColor,
+    getSize,
 } from './utils/theme-helpers';
-
-const SPACING_SIZES = {
-    SMALL: [2, 2],
-    REGULAR: [4, 3],
-    CIRCULAR: [3, 3],
-};
 
 export type ButtonProps = {
     children?: React.ReactNode;
@@ -30,6 +25,8 @@ export type ButtonProps = {
     disabled?: boolean;
     rounded?: boolean;
     circular?: boolean;
+    size?: string;
+    isFocused?: boolean;
     theme: Theme;
 };
 
@@ -39,7 +36,7 @@ const StyledButton = styled.button<ComposedProps>`
     display: inline-block;
     color: ${getColor};
     background-color: ${getBackgroundColor};
-    transition: background-color box-shadow 200ms;
+    transition: background-color, box-shadow 200ms;
 
     &:focus,
     &:hover,
@@ -58,7 +55,14 @@ const StyledButton = styled.button<ComposedProps>`
     ${border}
 `;
 
-export default function Button({ children, onClick = null, circular, rounded, ...props }: ButtonProps): ReactElement {
+export default function Button({
+    children,
+    onClick = null,
+    circular,
+    rounded,
+    size,
+    ...props
+}: ButtonProps): ReactElement {
     const childElements = Children.map(children, (child) => {
         if (typeof child === 'string') {
             return <Text as="span">{child}</Text>;
@@ -66,7 +70,7 @@ export default function Button({ children, onClick = null, circular, rounded, ..
         return child;
     });
     const borderRadius = getBorderRadius({ circular, rounded });
-    const [px, py] = circular ? SPACING_SIZES.CIRCULAR : SPACING_SIZES.REGULAR;
+    const [px, py] = getSize({ circular, size });
 
     function handleOnClick(event: SyntheticEvent) {
         if (props.disabled) {
@@ -87,4 +91,5 @@ Button.defaultProps = {
     as: 'button',
     theme: DEFAULT_THEME,
     variant: 'primary',
+    size: 'regular',
 };
