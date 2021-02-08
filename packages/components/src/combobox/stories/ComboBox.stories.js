@@ -8,12 +8,14 @@ export default {
     argTypes: {},
 };
 
-const Default = () => (
-    <ComboBox.Input id="test" label="This is an example label" placeholder="Please enter some text...">
-        <ComboBox.Item>A</ComboBox.Item>
-        <ComboBox.Item>B</ComboBox.Item>
-        <ComboBox.Item>C</ComboBox.Item>
-    </ComboBox.Input>
-);
+const DEFAULT_OPTIONS = ['a', 'b', 'c'];
+const DEFAULT_PROPS = {
+    options: DEFAULT_OPTIONS,
+    id: 'test',
+    label: 'test',
+    placholder: 'Please enter some text...',
+};
+
+const Default = () => <ComboBox {...DEFAULT_PROPS} />;
 
 export const Primary = Default.bind({});

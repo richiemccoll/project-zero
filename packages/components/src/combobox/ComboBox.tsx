@@ -11,41 +11,43 @@ type ComboxBoxProps = {
     id: string;
     label: string;
     placeholder?: string;
-    children?: ReactNode;
     theme?: Theme;
+    options?: Array<string>;
 };
 
-ComboBoxInput.defaultProps = {
+ComboBox.defaultProps = {
     theme: DEFAULT_THEME,
 };
 
 const ComboBoxContext = React.createContext(null);
 
-function ComboBoxProvider({ children }) {
+function ComboBoxProvider({ children }: { children: ReactNode }): React.ReactElement {
+    const [inputValue, setInputValue] = React.useState('');
     const [isExpanded, setExpanded] = React.useState(false);
     const [isFocused, setFocused] = React.useState(false);
     const value = {
+        inputValue,
+        setInputValue,
         isExpanded,
         isFocused,
         setExpanded,
         setFocused,
-        onSelectOption: (option) => console.log(option),
     };
     return <ComboBoxContext.Provider value={value}>{children}</ComboBoxContext.Provider>;
 }
 
-function ComboBoxInput({ id, label, placeholder, children }: ComboxBoxProps): React.ReactElement {
+function ComboBox({ id, label, placeholder, options }: ComboxBoxProps): React.ReactElement {
     return (
         <ComboBoxProvider>
-            <ComboBoxInputWithOptions id={id} label={label} placeholder={placeholder}>
-                {children}
-            </ComboBoxInputWithOptions>
+            <ComboBoxInputWithOptions id={id} label={label} placeholder={placeholder} options={options} />
         </ComboBoxProvider>
     );
 }
 
-function ComboBoxInputWithOptions({ id, label, placeholder, children }: ComboxBoxProps) {
-    const { isExpanded, isFocused, setFocused, setExpanded } = React.useContext(ComboBoxContext);
+function ComboBoxInputWithOptions({ id, label, placeholder, options }: ComboxBoxProps) {
+    const { isExpanded, isFocused, setFocused, setExpanded, inputValue, setInputValue } = React.useContext(
+        ComboBoxContext,
+    );
     const inputRef = React.useRef(null);
     return (
         <Stack variant="tiny">
@@ -69,6 +71,8 @@ function ComboBoxInputWithOptions({ id, label, placeholder, children }: ComboxBo
                             setFocused(false);
                         }
                     }}
+                    value={inputValue}
+                    onChange={(e) => setInputValue(e.target.value)}
                 />
                 <ComboBoxButton
                     variant="light"
@@ -83,40 +87,29 @@ function ComboBoxInputWithOptions({ id, label, placeholder, children }: ComboxBo
                     </svg>
                 </ComboBoxButton>
             </Flex>
-            {isExpanded ? <ComboBoxItems>{children}</ComboBoxItems> : null}
+            {isExpanded ? (
+                <ComboxBoxOptions>
+                    {options.map((option) => {
+                        return (
+                            <ComboBoxListItem
+                                key={option}
+                                role="option"
+                                px={2}
+                                py={2}
+                                onClick={(event) => {
+                                    event.preventDefault();
+                                    setInputValue(option);
+                                    setExpanded(false);
+                                }}
+                            >
+                                {option}
+                            </ComboBoxListItem>
+                        );
+                    })}
+                </ComboxBoxOptions>
+            ) : null}
         </Stack>
     );
 }
-
-// TODO
-// - implement combobox item
-// - implement error states
-function ComboBoxItems({ children }: { children: ReactNode }): React.ReactElement {
-    return <ComboxBoxOptions>{children}</ComboxBoxOptions>;
-}
-
-function ComboBoxItem({ children }: { children: ReactNode }): React.ReactElement {
-    const { onSelectOption } = React.useContext(ComboBoxContext);
-    const optionRef = React.useRef(null);
-    return (
-        <ComboBoxListItem
-            ref={optionRef}
-            role="option"
-            px={2}
-            py={2}
-            onClick={(event) => {
-                event.preventDefault();
-                onSelectOption(optionRef.current);
-            }}
-        >
-            {children}
-        </ComboBoxListItem>
-    );
-}
-
-const ComboBox = {
-    Input: ComboBoxInput,
-    Item: ComboBoxItem,
-};
 
 export default ComboBox;
