@@ -34,5 +34,5 @@ export function getFocusedBoxShadow({ theme }: IComboBoxUtils): string {
 }
 
 export function getButtonBoxShadow({ theme, isFocused }: IComboBoxUtils): string {
-    return isFocused ? `0 0 3px ${theme.colors.primary.default}` : 'none';
+    return isFocused ? `0 0 2px ${theme.colors.primary.default}` : 'none';
 }

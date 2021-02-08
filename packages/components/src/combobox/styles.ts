@@ -30,11 +30,13 @@ const Input = styled.input<SpaceProps>`
     :-ms-input-placeholder {
         color: ${getDefaultDarkGrey};
     }
-
+    &:focus,
+    &:active,
     &:hover {
         background-color: ${getLightActiveGrey};
     }
 
+    &:active,
     &:focus {
         outline: 0;
         border: ${getFocusedBorder};
@@ -52,6 +54,34 @@ const ComboBoxButton = styled(Button)`
     color: ${({ isFocused, theme }) => (isFocused ? theme.colors.primary.default : 'inherit')};
     fill: ${({ isFocused, theme }) => (isFocused ? theme.colors.primary.default : 'inherit')};
     box-shadow: ${getButtonBoxShadow};
+
+    &:focus {
+        outline: 0;
+        box-shadow: ${getButtonBoxShadow};
+    }
 `;
 
-export { Input, ComboBoxButton };
+const ComboxBoxOptions = styled.ul<SpaceProps>`
+    background-color: ${getDefaultLightGrey};
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border: 1px solid ${getDefaultDarkGrey};
+    max-width: calc(30ch + 2.5em);
+    border-radius: 5px;
+    ${space};
+`;
+
+const ComboBoxListItem = styled.li<SpaceProps>`
+    background-color: ${getDefaultLightGrey};
+    font-size: ${getFontSize};
+    cursor: pointer;
+    border-radius: 5px;
+    &:active,
+    &:hover {
+        background-color: ${getLightActiveGrey};
+    }
+    ${space};
+`;
+
+export { Input, ComboBoxButton, ComboxBoxOptions, ComboBoxListItem };
