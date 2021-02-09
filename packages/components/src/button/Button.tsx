@@ -30,9 +30,9 @@ export type ButtonProps = {
     theme: Theme;
 };
 
-type ComposedProps = ButtonProps & SpaceProps & BorderProps;
+export type ComposedButtonProps = ButtonProps & SpaceProps & BorderProps & React.HTMLAttributes<HTMLButtonElement>;
 
-const StyledButton = styled.button<ComposedProps>`
+const StyledButton = styled.button<ComposedButtonProps>`
     display: inline-block;
     color: ${getColor};
     background-color: ${getBackgroundColor};

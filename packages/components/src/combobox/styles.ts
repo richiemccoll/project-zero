@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import { space, SpaceProps } from 'styled-system';
 
 import Button from '../button';
+import { ComposedButtonProps } from '../button/Button';
+import { useFocusRing } from '../utils/styles';
 
 import {
     getFontSize,
@@ -46,7 +48,7 @@ const Input = styled.input<SpaceProps>`
     ${space};
 `;
 
-const ComboBoxButton = styled(Button)`
+const ComboBoxButton = styled(Button)<ComposedButtonProps>`
     margin-left: -1em;
     border: ${getBorder};
     border-radius: 0 5px 5px 0;
@@ -57,7 +59,7 @@ const ComboBoxButton = styled(Button)`
 
     &:focus {
         outline: 0;
-        box-shadow: ${getButtonBoxShadow};
+        box-shadow: ${({ theme }) => `0 0 2px ${theme.colors.primary.default}`};
     }
 `;
 
@@ -73,7 +75,6 @@ const ComboxBoxOptions = styled.ul<SpaceProps>`
 `;
 
 const ComboBoxListItem = styled.li<SpaceProps>`
-    background-color: ${getDefaultLightGrey};
     font-size: ${getFontSize};
     cursor: pointer;
     border-radius: 5px;
@@ -81,6 +82,8 @@ const ComboBoxListItem = styled.li<SpaceProps>`
     &:hover {
         background-color: ${getLightActiveGrey};
     }
+
+    ${useFocusRing};
     ${space};
 `;
 

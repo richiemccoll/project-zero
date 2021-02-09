@@ -18,4 +18,4 @@ const DEFAULT_PROPS = {
 
 const Default = () => <ComboBox {...DEFAULT_PROPS} />;
 
-export const Primary = Default.bind({});
+export const WithoutAutoComplete = Default.bind({});

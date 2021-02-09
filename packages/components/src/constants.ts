@@ -10,6 +10,13 @@ export const keyPress = {
     DOWN: 'down',
 };
 
+export const keys = {
+    DOWN: 'ArrowDown',
+    ESC: 'Escape',
+    UP: 'ArrowUp',
+    ENTER: 'Enter',
+};
+
 export const directions = {
     [keyCodes.LEFT]: keyPress.LEFT,
     [keyCodes.RIGHT]: keyPress.RIGHT,
