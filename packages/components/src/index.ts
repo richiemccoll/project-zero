@@ -1,4 +1,5 @@
 import Box from './box/';
+import Breadcrumbs from './breadcrumbs/';
 import Button from './button/';
 import Card from './card/';
 import Clipboard from './clipboard';
@@ -16,6 +17,7 @@ import ThemeProvider from './theme-provider';
 
 export {
     Box,
+    Breadcrumbs,
     Button,
     Card,
     Clipboard,
