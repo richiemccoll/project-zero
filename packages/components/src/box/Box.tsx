@@ -9,7 +9,7 @@ import {
     shadow,
     SpaceProps,
     ColorProps,
-    FlexProps,
+    FlexboxProps,
     LayoutProps,
     BorderProps,
     ShadowProps,
@@ -28,7 +28,7 @@ type BoxProps = {
     role?: string;
 };
 
-type ComposedProps = SpaceProps & ColorProps & LayoutProps & FlexProps & BorderProps & ShadowProps & BoxProps;
+type ComposedProps = SpaceProps & ColorProps & LayoutProps & FlexboxProps & BorderProps & ShadowProps & BoxProps;
 
 /**
  * Everything in web design is a box, or the absence of a box.

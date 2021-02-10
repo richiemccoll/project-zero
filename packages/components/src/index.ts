@@ -1,6 +1,7 @@
 import Box from './box/';
 import Button from './button/';
 import Card from './card/';
+import Clipboard from './clipboard';
 import ComboBox from './combobox/';
 import Flex from './flex/';
 import Heading from './heading/';
@@ -17,6 +18,7 @@ export {
     Box,
     Button,
     Card,
+    Clipboard,
     ComboBox,
     Flex,
     Heading,
