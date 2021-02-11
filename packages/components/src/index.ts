@@ -1,3 +1,4 @@
+import Alert from './alert';
 import Box from './box/';
 import Breadcrumbs from './breadcrumbs/';
 import Button from './button/';
@@ -16,6 +17,7 @@ import VisuallyHidden from './visually-hidden/';
 import ThemeProvider from './theme-provider';
 
 export {
+    Alert,
     Box,
     Breadcrumbs,
     Button,

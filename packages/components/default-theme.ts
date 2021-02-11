@@ -106,6 +106,11 @@ const colors = {
             disabled: '#CEE4F3',
         },
     },
+    alerts: {
+        info: '#EBF4FA',
+        success: '#7EE6B9',
+        error: '#f44336',
+    },
 };
 
 const fontSizes = [12, 16, 20, 24, 32, 40, 64];
