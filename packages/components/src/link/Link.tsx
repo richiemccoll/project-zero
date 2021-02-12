@@ -42,6 +42,10 @@ const StyledLink = styled.a`
     ${space};
 `;
 
+/**
+ * Provides a reference to a resource. The target resource can be either external or local.
+ * See: https://www.w3.org/TR/wai-aria-practices-1.1/#link
+ */
 const Link = React.forwardRef(
     (
         { id, children, href, role, target, rel, variant = 'primary', inline, onPress, tabIndex, ...props }: LinkProps,

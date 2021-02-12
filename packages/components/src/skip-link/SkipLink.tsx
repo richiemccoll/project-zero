@@ -28,6 +28,9 @@ const StyledSkipLink = styled(Link)<SkipLinkProps>`
     }
 `;
 
+/**
+ * This should be used for allowing keyboard users to quickly navigate to the main content areas of a page.
+ */
 export default function SkipLink({ children, id }: SkipLinkProps): React.ReactElement {
     const href = id.includes('#') ? id : `#${id}`;
     return (

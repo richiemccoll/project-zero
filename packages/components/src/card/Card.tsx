@@ -28,6 +28,9 @@ Card.defaultProps = {
     actions: null,
 };
 
+/**
+ * A composition that contains display content and actions for some specific topic.
+ */
 export default function Card({ title, image, description, actions }: CardProps): React.ReactElement {
     const showActions = React.isValidElement(actions);
     return (

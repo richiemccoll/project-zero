@@ -11,6 +11,9 @@ function getVerticalSpacing({ theme, variant }) {
     return theme.verticalSpacing[variant];
 }
 
+/**
+ * A layout primitive that applies systemized vertical spacing.
+ */
 const Stack = styled.div<StackProps>`
     display: flex;
     flex-direction: column;

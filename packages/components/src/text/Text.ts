@@ -15,6 +15,9 @@ function getFontSize({ theme, variant }) {
     return theme.textFontSizes[variant];
 }
 
+/**
+ * Applies the smaller text variants such as regular body text or smaller body text.
+ */
 const Text = styled.p<ComposedProps>`
     font-size: ${getFontSize}rem;
     ${typography};

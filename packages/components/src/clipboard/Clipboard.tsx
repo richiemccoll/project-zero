@@ -27,6 +27,9 @@ function ClipboardIcon({ icon }: { icon?: React.ReactElement | null }) {
     );
 }
 
+/**
+ * A light variant of the `Button` component that interacts with the `navigator.clipboard` API.
+ */
 export default function Clipboard({
     text,
     icon,

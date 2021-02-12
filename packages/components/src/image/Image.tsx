@@ -48,6 +48,10 @@ const ImageElement = styled.img`
     background-color: ${getImageBackground};
 `;
 
+/**
+ * An HTML image element wrapped in the `AspectRatio` padding-bottom trick.
+ * Defaults to an aspect ratio of `9 / 16`.
+ */
 export default function Image({ src, alt, testId }: ImageProps): React.ReactElement {
     return (
         <AspectRatio>

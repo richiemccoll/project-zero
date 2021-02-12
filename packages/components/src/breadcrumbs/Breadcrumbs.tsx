@@ -15,6 +15,10 @@ type BreadcrumbLinkProps = {
     onPress?: (arg: SyntheticEvent) => void;
 };
 
+/**
+ * A list of links to the parent pages of the current page in hierarchical order.
+ * See: https://www.w3.org/TR/wai-aria-practices-1.1/#breadcrumb
+ */
 function Breadcrumbs({ children }: BreadcrumbsProps): React.ReactElement {
     return (
         <nav aria-label="Breadcrumb">

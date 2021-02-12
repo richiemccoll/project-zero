@@ -38,7 +38,7 @@ type TabState = {
 const TabsContext = React.createContext(null);
 
 /**
- * Provides Context for the Tabs components.
+ * Tabs are a set of layered sections of content, known as tab panels, that display one panel of content at a time.
  */
 function Tabs({ children }: TabsProps): React.ReactElement {
     const [tabs, setTabs] = React.useState([]);

@@ -94,6 +94,10 @@ function ComboBoxProvider({ children }: { children: ReactNode }): React.ReactEle
     return <ComboBoxContext.Provider value={value}>{children}</ComboBoxContext.Provider>;
 }
 
+/**
+ * A combobox is made up of the combination of a single-line textbox and
+ * an associated pop-up element that helps a user set the value of the textbox.
+ */
 function ComboBox({ id, label, placeholder, options, type }: ComboxBoxProps): React.ReactElement {
     return (
         <ComboBoxProvider>

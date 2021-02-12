@@ -12,6 +12,9 @@ function getSize({ theme, variant }) {
     return theme.headingFontSizes[variant];
 }
 
+/**
+ * This adds hierarchy to a section in a page.
+ */
 const Heading = styled.h2<HeadingProps>`
     ${typography};
     font-weight: bold;

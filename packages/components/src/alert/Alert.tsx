@@ -24,6 +24,11 @@ const liveTypes = {
     error: 'assertive',
 };
 
+/**
+ * An alert displays a brief, important message.
+ * It does this in a way that attracts the user's attention without interrupting their task.
+ * See: https://www.w3.org/TR/wai-aria-practices-1.1/#alert
+ */
 export default function Alert({ active, type, children }: AlertProps): React.ReactElement {
     const { colors } = React.useContext(ThemeContext);
     const liveType = liveTypes[type];

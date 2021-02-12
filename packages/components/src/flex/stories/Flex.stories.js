@@ -8,7 +8,7 @@ export default {
     argTypes: {},
 };
 
-const Template = (args) => (
+const Template = () => (
     <Flex justifyContent="space-around" bg="#eee">
         <p>Child one</p>
         <p>Child two</p>
